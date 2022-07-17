@@ -1,0 +1,32 @@
+<div class="main-index">
+    <div class="form-div">
+      <p>Tabs</p>
+      <div class="nav">
+        <nav id="tab-form">
+          <div class="form-input">
+            <label htmlFor="numTabs" class="numTabs">Num.Tabs</label>
+            <input [(ngModel)]="num" placeholder="1" type="text" id="numTabs" class="inputNum" (change)="editNum($event)"/>
+            <div *ngIf="num == '0'" class="error">Deve haver ao menos uma aba</div>
+            <hr />
+          </div>
+          <form class="data-input" >
+                <div class="form-input" *ngFor="let id of array; index as i">
+                    <label class="titulo">Título</label>
+                    <input type="text" id="titulo" class="inputTitulo" [(ngModel)]="titulos[i]" (change)="changeTitle($event, i)" />
+                    <div class="error" *ngIf="!titulos[i] && erro == true"> É necessário informar o título da aba</div>
+                    <label class="label-conteudo" >Conteúdo </label>
+                    <textarea id="conteudo" class="textAConteudo" [(ngModel)]="conteudos[i]" (change)="changeContent($event, i)" ></textarea>
+                    <div class="error" *ngIf="!conteudos[i] && erro == true"> É necessário informar o conteúdo da aba</div>
+                </div>
+                <div class="form-btn">
+                  <input  type="submit" class="submit-btn" value="Salvar" (click)="cadastro()"/>
+                </div>
+          </form>
+        </nav>
+      </div>
+    </div>
+    <div class="conteudo">
+      <p>Conteúdo</p>
+      <app-tab [ids]="titulosF" [contents]="conteudosF"></app-tab>
+    </div>
+  </div>

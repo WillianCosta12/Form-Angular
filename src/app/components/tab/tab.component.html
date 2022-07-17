@@ -1,0 +1,15 @@
+<div class="contents">
+
+    <div class="nav">
+        <div class="button-list">
+            <button *ngFor="let id of ids; index as i" (click)="onClick(i)">{{id}}</button>
+        </div>
+    </div>
+    <div class="outlet">
+        <div>
+            <p>{{content}}</p>
+        </div>
+    </div>
+</div>
+
+
